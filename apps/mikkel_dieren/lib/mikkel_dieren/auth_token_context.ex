@@ -98,6 +98,12 @@ defmodule MikkelDieren.AuthTokenContext do
     |> Repo.insert()
   end
 
+  def create_auth_token(attrs \\ %{}) do
+    %AuthToken{}
+    |> AuthToken.changeset(attrs)
+    |> Repo.insert()
+  end
+
   @doc """
   Updates a auth_token.
 

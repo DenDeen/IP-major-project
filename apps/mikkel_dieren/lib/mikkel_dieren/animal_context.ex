@@ -55,6 +55,14 @@ defmodule MikkelDieren.AnimalContext do
       {:error, %Ecto.Changeset{}}
 
   """
+
+  def create_animal(attrs) do
+    %Animal{}
+    |> Animal.changeset(attrs)
+    |> Repo.insert()
+  end
+
+
   def create_animal(attrs, %User{} = user) do
     %Animal{}
     |> Animal.create_changeset(attrs, user)

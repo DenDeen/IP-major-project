@@ -1,0 +1,35 @@
+<section class="phx-hero">
+  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
+  <p>A productive web framework that<br />does not compromise speed or maintainability.</p>
+</section>
+
+<%= if @current_user do %>
+
+<section class="row">
+  <table>
+    <thead>
+      <tr>
+        <th><%= gettext "Name" %></th>
+        <th><%= gettext "Date of birth" %></th>
+        <th><%= gettext "Type" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for animal <- @animals do %>
+      <tr>
+        <td><%= animal.name %></td>
+        <td><%= animal.dob %></td>
+        <td><%= animal.cat_or_dog %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+
+<% else %>
+
+<section class="row">
+  <p><%= gettext "Welcome!" %></p>
+</section>
+
+<% end %>

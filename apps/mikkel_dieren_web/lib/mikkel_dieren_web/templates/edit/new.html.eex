@@ -1,0 +1,5 @@
+<h1><%= gettext "Sign up" %></h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.edit_path(@conn, :create)) %>
+
+<span><a href="/"><%= gettext "Back" %></a></span>

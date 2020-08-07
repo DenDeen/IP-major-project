@@ -1,0 +1,5 @@
+<h1><%= gettext "Edit Username" %></h1>
+
+<%= render "form_username.html", Map.put(assigns, :action, Routes.edit_path(@conn, :update_username, @current_user)) %>
+
+<span><%= link "←", to: Routes.edit_path(@conn, :index, @current_user) %></span>

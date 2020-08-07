@@ -1,0 +1,44 @@
+<h1><%= gettext "Your profile" %></h1>
+
+<section class="row">
+    <strong><%= gettext "Username:" %></strong>
+    <%= @current_user.username %>
+</section>
+<ul>
+    <li>
+        <span><%= link "Edit username", to: Routes.edit_path(@conn, :edit_username, @current_user) %></span>
+    </li>
+    <li>
+        <span><%= link "Edit password", to: Routes.edit_path(@conn, :edit_password, @current_user) %></span>     
+    </li>
+</ul>
+
+<h2 style="margin-top: 20px;"><%= gettext "Generate API token" %></h2>
+<section class="row">
+    <%= render "form_api.html", Map.put(assigns, :action, Routes.edit_path(@conn, :generate_api_token, @current_user)) %>
+</section>
+
+<h2><%= gettext "Api tokens" %></h2>
+<section class="row">
+    <table>
+        <thead>
+          <tr>
+            <th><%= gettext "Name" %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        <%= for token <- @tokens do %>
+          <tr>
+            <td><%= token.name %></td>  
+            <td>
+              <span><%= link "Show", to: Routes.token_path(@conn, :show, token) %></span>
+              <span><%= link "Delete", to: Routes.token_path(@conn, :delete, token), method: :delete, data: [confirm: "Are you sure?"] %></span>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+    </table>
+</section>
+
+<span><%= link "Token", to: Routes.token_path(@conn, :token, @current_user) %></span>

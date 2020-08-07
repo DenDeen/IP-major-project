@@ -1,0 +1,22 @@
+<h1><%= gettext "Show Token" %></h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @token.name %>
+  </li>
+
+  <li>
+    <strong>Token:</strong>
+    <%= @token.token %>
+  </li>
+
+  <li>
+    <strong>Owner:</strong>
+    <%= @user %>
+  </li>
+
+</ul>
+
+<span><%= link "Back", to: Routes.edit_path(@conn, :index, @current_user) %></span>

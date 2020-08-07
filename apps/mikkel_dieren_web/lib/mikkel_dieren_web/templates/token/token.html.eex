@@ -1,0 +1,3 @@
+<span><%= @token %></span>
+
+<span><%= link "Back", to: Routes.edit_path(@conn, :index, @current_user) %></span>

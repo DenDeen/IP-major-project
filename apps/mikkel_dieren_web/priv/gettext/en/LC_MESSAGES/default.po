@@ -1,0 +1,159 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+"Plural-Forms: nplurals=2\n"
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/page/index.html.eex:2
+msgid "Welcome to %{name}!"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/edit/index.html.eex:11
+#: lib/mikkel_dieren_web/templates/edit/index.html.eex:11
+msgid "API key name"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/edit/edit_password.html.eex:5
+#: lib/mikkel_dieren_web/templates/edit/edit_password.html.eex:5 lib/mikkel_dieren_web/templates/edit/edit_username.html.eex:5
+#: lib/mikkel_dieren_web/templates/edit/edit_username.html.eex:5 lib/mikkel_dieren_web/templates/edit/new.html.eex:5
+#: lib/mikkel_dieren_web/templates/edit/new.html.eex:5
+msgid "Back"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/page/index.html.eex:12
+#: lib/mikkel_dieren_web/templates/user/index.html.eex:8
+msgid "Date of birth"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/edit/edit_password.html.eex:1
+#: lib/mikkel_dieren_web/templates/edit/edit_password.html.eex:1
+msgid "Edit Password"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/user/edit.html.eex:1
+msgid "Edit User"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/edit/edit_username.html.eex:1
+#: lib/mikkel_dieren_web/templates/edit/edit_username.html.eex:1
+msgid "Edit Username"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/user/index.html.eex:6
+msgid "First name"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/user/index.html.eex:7
+msgid "Last name"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/user/index.html.eex:1
+msgid "Listing Users"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/layout/app.html.eex:18
+msgid "Login"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/session/new.html.eex:1
+msgid "Login Page"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/edit/index.html.eex:12
+#: lib/mikkel_dieren_web/templates/edit/index.html.eex:12 lib/mikkel_dieren_web/templates/page/index.html.eex:11
+msgid "Name"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/user/new.html.eex:1
+msgid "New user"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/edit/form.html.eex:5
+#: lib/mikkel_dieren_web/templates/edit/form.html.eex:5 lib/mikkel_dieren_web/templates/edit/form_password.html.eex:5
+#: lib/mikkel_dieren_web/templates/edit/form_password.html.eex:5 lib/mikkel_dieren_web/templates/edit/form_username.html.eex:5
+#: lib/mikkel_dieren_web/templates/edit/form_username.html.eex:5 lib/mikkel_dieren_web/templates/user/form.html.eex:5
+msgid "Oops, something went wrong! Please check the errors below."
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/layout/app.html.eex:17
+#: lib/mikkel_dieren_web/templates/layout/app.html.eex:22 lib/mikkel_dieren_web/templates/layout/app.html.eex:25
+msgid "Overview"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/user/show.html.eex:1
+msgid "Show User"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/edit/new.html.eex:1
+#: lib/mikkel_dieren_web/templates/edit/new.html.eex:1 lib/mikkel_dieren_web/templates/layout/app.html.eex:19
+#: lib/mikkel_dieren_web/templates/session/new.html.eex:22
+msgid "Sign up"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/page/index.html.eex:13
+msgid "Type"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/edit/index.html.eex:4
+#: lib/mikkel_dieren_web/templates/edit/index.html.eex:4
+msgid "Username:"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/page/index.html.eex:29
+msgid "Welcome!"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/edit/index.html.eex:21
+#: lib/mikkel_dieren_web/templates/edit/index.html.eex:21
+msgid "Your personal api link:"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/edit/index.html.eex:1
+#: lib/mikkel_dieren_web/templates/edit/index.html.eex:1
+msgid "Your profile"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/layout/app.html.eex:27
+msgid "Logout"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/layout/app.html.eex:28
+msgid "Profile"
+msgstr ""
+
+#, elixir-format
+#: lib/mikkel_dieren_web/templates/layout/app.html.eex:23
+msgid "User management"
+msgstr ""

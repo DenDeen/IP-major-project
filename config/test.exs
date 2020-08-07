@@ -5,12 +5,13 @@ use Mix.Config
 # The MIX_TEST_PARTITION environment variable can be used
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
-config :mikkel_dieren, MikkelDieren.Repo,
-  username: "root",
-  password: "",
-  database: "mikkel_dieren_test#{System.get_env("MIX_TEST_PARTITION")}",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
+config :a_demo, MikkelDieren.Repo,
+  username: System.get_env("TEST_DB_USER") || "root",
+  password: System.get_env("TEST_DB_PASSWORD") || "t",
+  database: System.get_env("TEST_DB_NAME") || "Local instance MySQL80",
+  hostname: System.get_env("TEST_DB_HOST") || "localhost",
+  pool: Ecto.Adapters.SQL.Sandbox,
+  pool_size: (System.get_env("DB_POOL_SIZE") || "10") |> Integer.parse() |> elem(0)
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.

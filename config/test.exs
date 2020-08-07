@@ -5,7 +5,7 @@ use Mix.Config
 # The MIX_TEST_PARTITION environment variable can be used
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
-config :a_demo, MikkelDieren.Repo,
+config :mikkel_dieren, MikkelDieren.Repo,
   username: System.get_env("TEST_DB_USER") || "root",
   password: System.get_env("TEST_DB_PASSWORD") || "t",
   database: System.get_env("TEST_DB_NAME") || "Local instance MySQL80",

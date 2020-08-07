@@ -92,7 +92,7 @@ defmodule MikkelDieren.AuthTokenContext do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_auth_token(attrs \\ %{}, %User{} = user) do
+  def create_auth_token(attrs, %User{} = user) do
     %AuthToken{}
     |> AuthToken.create_changeset(attrs, user)
     |> Repo.insert()

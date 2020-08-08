@@ -15,17 +15,22 @@ defmodule MikkelDierenWeb.AnimalController do
 
   def create(conn, %{"user_id" => user_id, "animal" => animal_params}) do
     user = UserContext.get_user!(user_id)
+    if conn.assigns.is_writable do
+      case AnimalContext.create_animal(animal_params, user) do
+        {:ok, %Animal{} = animal} ->
+          conn
+          |> put_status(:created)
+          |> put_resp_header("location", Routes.user_animal_path(conn, :show, user_id, animal))
+          |> render("show.json", animal: animal)
 
-    case AnimalContext.create_animal(animal_params, user) do
-      {:ok, %Animal{} = animal} ->
-        conn
-        |> put_status(:created)
-        |> put_resp_header("location", Routes.user_animal_path(conn, :show, user_id, animal))
-        |> render("show.json", animal: animal)
-
-      {:error, _cs} ->
-        conn
-        |> send_resp(400, "Something went wrong, sorry. Adjust your parameters or give up.")
+        {:error, _cs} ->
+          conn
+          |> send_resp(400, "Something went wrong, sorry. Please adjust your parameters.")
+      end
+    else
+      conn 
+      |> send_resp(401, "Unauthorized") 
+      |> halt()
     end
   end
 
@@ -35,23 +40,37 @@ defmodule MikkelDierenWeb.AnimalController do
   end
 
   def update(conn, %{"id" => id, "animal" => animal_params}) do
-    animal = AnimalContext.get_animal!(id)
+    if conn.assigns.is_writable do
+      animal = AnimalContext.get_animal!(id)
 
-    case AnimalContext.update_animal(animal, animal_params) do
-      {:ok, %Animal{} = animal} ->
-        render(conn, "show.json", animal: animal)
+      case AnimalContext.update_animal(animal, animal_params) do
+        {:ok, %Animal{} = animal} ->
+          render(conn, "show.json", animal: animal)
 
-      {:error, _cs} ->
-        conn
-        |> send_resp(400, "Something went wrong, sorry. Adjust your parameters or give up.")
+        {:error, _cs} ->
+          conn
+          |> send_resp(400, "Something went wrong, sorry. Adjust your parameters or give up.")
+      end
+
+    else
+      conn 
+      |> send_resp(401, "Unauthorized") 
+      |> halt()
     end
   end
 
   def delete(conn, %{"id" => id}) do
-    animal = AnimalContext.get_animal!(id)
+    if conn.assigns.is_writable do
+      animal = AnimalContext.get_animal!(id)
 
-    with {:ok, %Animal{}} <- AnimalContext.delete_animal(animal) do
-      send_resp(conn, :no_content, "")
+      with {:ok, %Animal{}} <- AnimalContext.delete_animal(animal) do
+        send_resp(conn, :no_content, "")
+      end
+
+    else
+      conn 
+      |> send_resp(401, "Unauthorized") 
+      |> halt()
     end
   end
 end

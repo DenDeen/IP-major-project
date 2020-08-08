@@ -24,13 +24,15 @@
         <thead>
           <tr>
             <th><%= gettext "Name" %></th>
+            <th><%= gettext "Write rights?" %></th>
             <th></th>
           </tr>
         </thead>
         <tbody>
         <%= for token <- @tokens do %>
           <tr>
-            <td><%= token.name %></td>  
+            <td><%= token.name %></td> 
+            <td><%= token.is_writable %></td>   
             <td>
               <span><%= link "Show", to: Routes.token_path(@conn, :show, token) %></span>
               <span><%= link "Delete", to: Routes.token_path(@conn, :delete, token), method: :delete, data: [confirm: "Are you sure?"] %></span>

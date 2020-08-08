@@ -79,7 +79,7 @@ defmodule MikkelDierenWeb.EditController do
     def generate_api_token(conn, %{"id" => id, "auth_token" => key}) do
       user = UserContext.get_user!(id)
       token = AuthTokenContext.generate_token(id)
-      case AuthTokenContext.create_auth_token(%{user_id: id, name: key["key"], token: token}, user) do
+      case AuthTokenContext.create_auth_token(%{user_id: id, name: key["key"], token: token, is_writable: key["is_writable"]}, user) do
         {:ok, auth_token} ->
           conn
           |> put_flash(:info, "Token created successfully.")

@@ -60,7 +60,7 @@ defmodule MikkelDieren.AuthTokenContext do
   end
 
   def load_auth_tokens(id) do
-    query = from(AuthToken, where: [user_id: ^id], select: [:id, :name])
+    query = from(AuthToken, where: [user_id: ^id], select: [:id, :name, :is_writable])
     query |> Repo.all
   end
 
@@ -95,12 +95,6 @@ defmodule MikkelDieren.AuthTokenContext do
   def create_auth_token(attrs, %User{} = user) do
     %AuthToken{}
     |> AuthToken.create_changeset(attrs, user)
-    |> Repo.insert()
-  end
-
-  def create_auth_token(attrs) do
-    %AuthToken{}
-    |> AuthToken.changeset(attrs)
     |> Repo.insert()
   end
 

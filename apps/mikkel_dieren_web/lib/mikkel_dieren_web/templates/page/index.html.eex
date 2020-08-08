@@ -1,6 +1,8 @@
+<p id="clock"></p>
+
 <section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>A productive web framework that<br />does not compromise speed or maintainability.</p>
+  <h1><%= gettext "Welcome to %{name} application!", name: "Mikkel's phoenix web" %></h1>
+  <p><%= gettext "This website is build with elixir and does not compromise speed or maintainability." %></p>
 </section>
 
 <%= if @current_user do %>

@@ -13,7 +13,7 @@ defmodule MikkelDierenWeb.Plugs.Authenticate do
           IO.puts(token)
           case MikkelDieren.Repo.get_by(AuthToken, %{token: token}) |> Repo.preload(:user) do
             nil -> unauthorized(conn)
-            auth_token -> authorized(conn, auth_token.user)
+            auth_token -> authorized(conn, auth_token)
           end
         _ -> 
             IO.puts("token")
@@ -21,8 +21,9 @@ defmodule MikkelDierenWeb.Plugs.Authenticate do
       end
     end
 
-    defp authorized(conn, user) do
+    defp authorized(conn, auth_token) do
       conn
+       |> assign(:is_writable, auth_token.is_writable)
     end
     
     defp unauthorized(conn) do

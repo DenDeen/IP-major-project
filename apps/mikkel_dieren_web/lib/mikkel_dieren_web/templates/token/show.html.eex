@@ -13,6 +13,11 @@
   </li>
 
   <li>
+    <strong>Write rights:</strong>
+    <%= @token.is_writable %>
+  </li>
+
+  <li>
     <strong>Owner:</strong>
     <%= @user %>
   </li>

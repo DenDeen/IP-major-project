@@ -2,9 +2,7 @@ defmodule MikkelDierenWeb.TokenController do
     use MikkelDierenWeb, :controller
   
     alias MikkelDieren.UserContext
-    alias MikkelDieren.UserContext.User
     alias MikkelDieren.AuthTokenContext
-    alias MikkelDieren.AuthTokenContext.AuthToken
 
     def token(conn, _params) do
         token = conn.cookies["bearer"]

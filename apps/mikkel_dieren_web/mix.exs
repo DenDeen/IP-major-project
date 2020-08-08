@@ -48,7 +48,8 @@ defmodule MikkelDierenWeb.MixProject do
       {:mikkel_dieren, in_umbrella: true},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:guardian, "~> 2.0"}
+      {:guardian, "~> 2.0"},
+      {:junit_formatter, "~> 3.0", only: [:test]}
     ]
   end
 

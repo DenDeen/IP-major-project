@@ -55,3 +55,6 @@ jobs:  # basic units of work in a run
       - store_test_results: 
           # Read more: https://circleci.com/docs/2.0/collect-test-data/
           path: test-reports
+
+      - store_artifacts:
+          path: test-reports

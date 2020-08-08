@@ -40,7 +40,8 @@ defmodule MikkelDieren.MixProject do
       {:ecto_sql, "~> 3.4"},
       {:myxql, ">= 0.0.0"},
       {:jason, "~> 1.0"},
-      {:argon2_elixir, "~> 2.2"}
+      {:argon2_elixir, "~> 2.2"},
+      {:junit_formatter, "~> 3.0", only: [:test]}
     ]
   end
 

@@ -2,7 +2,6 @@ defmodule MikkelDierenWeb.PageController do
   use MikkelDierenWeb, :controller
   import Guardian.Plug
 
-  alias MikkelDieren.UserContext
   alias MikkelDieren.AnimalContext
 
   def index(conn, _params) do

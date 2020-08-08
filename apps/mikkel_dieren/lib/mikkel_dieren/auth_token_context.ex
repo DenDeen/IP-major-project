@@ -4,7 +4,6 @@ defmodule MikkelDieren.AuthTokenContext do
   """
 
   import Ecto.Query, warn: false
-  import Plug.Conn
 
   alias MikkelDieren.Repo
   alias MikkelDieren.AuthTokenContext.AuthToken
@@ -20,14 +19,14 @@ defmodule MikkelDieren.AuthTokenContext do
 
   def verify_token(token) do
     case Phoenix.Token.verify(@secret, @seed, token, max_age: 86400) do
-      {:ok, id} -> {:ok, token}
+      {:ok, _id} -> {:ok, token}
       error -> error
     end
   end
 
   def verify_token(token, key) do
     case Phoenix.Token.verify(@secret, key, token, max_age: 86400) do
-      {:ok, id} -> {:ok, token}
+      {:ok, _id} -> {:ok, token}
       error -> error
     end
   end
@@ -42,7 +41,7 @@ defmodule MikkelDieren.AuthTokenContext do
       [token] -> 
         verify_token(token)
 
-      error -> 
+      error -> error
     end
   end
 

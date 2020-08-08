@@ -20,7 +20,7 @@ defmodule MikkelDierenWeb.EditController do
   
     def create(conn, %{"user" => user_params}) do
       case UserContext.create_user(user_params) do
-        {:ok, user} ->
+        {:ok, _user} ->
           conn
           |> put_flash(:info, "The account was created successfully. Now it is time to log in!")
           |> redirect(to: "/login")
@@ -33,14 +33,12 @@ defmodule MikkelDierenWeb.EditController do
     def edit_username(conn, %{"id" => id}) do
       user = UserContext.get_user!(id)
       changeset = UserContext.change_user(user)
-      roles = UserContext.get_acceptable_roles()
       render(conn, "edit_username.html", user: user, changeset: changeset)
     end
 
     def edit_password(conn, %{"id" => id}) do
         user = UserContext.get_user!(id)
         changeset = UserContext.change_user(user)
-        roles = UserContext.get_acceptable_roles()
         render(conn, "edit_password.html", user: user, changeset: changeset)
     end
   
@@ -69,7 +67,7 @@ defmodule MikkelDierenWeb.EditController do
           {:error, %Ecto.Changeset{} = changeset} ->
             render(conn, "edit_password.html", user: user, changeset: changeset)
           
-          {:error, reason} ->
+          {:error, _reason} ->
             conn
             |> put_flash(:error, "Information given wasn't correct.")
             |> redirect(to: Routes.edit_path(conn, :index, user))
@@ -80,7 +78,7 @@ defmodule MikkelDierenWeb.EditController do
       user = UserContext.get_user!(id)
       token = AuthTokenContext.generate_token(id)
       case AuthTokenContext.create_auth_token(%{user_id: id, name: key["key"], token: token, is_writable: key["is_writable"]}, user) do
-        {:ok, auth_token} ->
+        {:ok, _auth_token} ->
           conn
           |> put_flash(:info, "Token created successfully.")
           |> redirect(to: Routes.edit_path(conn, :index, user))

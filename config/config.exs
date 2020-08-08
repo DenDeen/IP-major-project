@@ -48,3 +48,10 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
+
+config :junit_formatter,
+  report_file: "report_file.xml",
+  # this is imported in your app! hence the double ..
+  report_dir: "../../test-reports",
+  print_report_file: true,
+  prepend_project_name?: true

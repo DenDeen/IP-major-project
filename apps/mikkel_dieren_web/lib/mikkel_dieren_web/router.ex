@@ -61,8 +61,8 @@ defmodule MikkelDierenWeb.Router do
     put "/profile/edit/username/:id", EditController, :update_username
     put "/profile/edit/password/:id", EditController, :update_password
     get "/profile/token/:id", TokenController, :token
-    get "profile/token/show/:id", TokenController, :show
-    delete "profile/token/:id", TokenController, :delete
+    get "/profile/token/show/:id", TokenController, :show
+    delete "/profile/token/:id", TokenController, :delete
     post "/profile/token/:id", EditController, :generate_api_token
   end
 

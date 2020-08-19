@@ -72,6 +72,7 @@ defmodule MikkelDierenWeb.Router do
     resources "/users", UserController
     get "/", PageController, :admin_index
     get "/apikeys/overview", UserController, :index_api
+    delete "/apikeys/delete/:id", TokenController, :admin_delete
   end
 
   scope "/api", MikkelDierenWeb do

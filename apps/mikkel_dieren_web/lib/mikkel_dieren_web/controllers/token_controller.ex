@@ -24,5 +24,14 @@ defmodule MikkelDierenWeb.TokenController do
         |> put_flash(:info, "Token deleted successfully.")
         |> redirect(to: Routes.edit_path(conn, :index, user))
     end
+
+    def admin_delete(conn, %{"id" => id}) do
+        token = AuthTokenContext.get_auth_token!(id)
+        {:ok, _token} = AuthTokenContext.delete_auth_token(token)
+        
+        conn
+            |> put_flash(:info, "Token deleted successfully.")
+            |> redirect(to: Routes.user_path(conn, :index_api))
+    end
 end
 

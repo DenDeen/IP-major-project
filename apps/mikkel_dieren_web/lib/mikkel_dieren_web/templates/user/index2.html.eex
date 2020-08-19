@@ -1,0 +1,30 @@
+<h1><%= gettext "Listing Users" %></h1>
+
+<table>
+  <thead>
+    <tr>
+        <th><%= gettext "User Id" %></th>
+      <th><%= gettext "Username" %></th>
+      <th><%= gettext "First name" %></th>
+      <th><%= gettext "Last name" %></th>
+      <th><%= gettext "Token" %></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for key <- @keys do %>
+    <%= for user <- @users do %>
+        <%= if user.id == key.user_id do %>
+        <tr>
+        <td><%= key.user_id %></td>
+        <td><%= user.username %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= key.token %></td>
+        </tr>
+        <% end %>
+    <% end %>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New User", to: Routes.user_path(@conn, :new) %></span>

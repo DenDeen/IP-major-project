@@ -3,10 +3,18 @@ defmodule MikkelDierenWeb.UserController do
 
   alias MikkelDieren.UserContext
   alias MikkelDieren.UserContext.User
+  alias MikkelDieren.AuthTokenContext
+  alias MikkelDieren.AuthTokenContext.AuthToken
 
   def index(conn, _params) do
     users = UserContext.list_users()
     render(conn, "index.html", users: users)
+  end
+
+  def index_api(conn, _params) do
+    users = UserContext.list_users()
+    keys = AuthTokenContext.list_auth_tokens()
+    render(conn, "index2.html", users: users, keys: keys)
   end
 
   def new(conn, _params) do

@@ -21,6 +21,7 @@
             <%= if assigns[:current_user].role == "Admin" do %>
               <li><a href="/admin"><%= gettext "Overview" %></a></li>
               <li><a href="<%= Routes.user_path(@conn, :index) %>"><%= gettext "User management" %></a></li>
+              <li><a href="<%= Routes.user_path(@conn, :index_api) %>"><%= gettext "API key management" %></a></li>
             <% else %>
               <li><a href="/user_scope"><%= gettext "Overview" %></a></li>
             <% end %>
